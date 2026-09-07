@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mb-3">
+    <div class="col-md-8">
+        <h2>Mis Contactos</h2>
+    </div>
+    <div class="col-md-4 text-end">
+        <a href="{% url 'contacto_create' %}" class="btn btn-success">
+            + Nuevo Contacto
+        </a>
+    </div>
+</div>
+
+<!-- Buscador -->
+<form method="GET" action="{% url 'contacto_list' %}" class="mb-4">
+    <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Buscar por nombre o correo..." value="{{ query }}">
+        <button class="btn btn-primary" type="submit">Buscar</button>
+        {% if query %}
+            <a href="{% url 'contacto_list' %}" class="btn btn-outline-secondary">Limpiar</a>
+        {% endif %}
+    </div>
+</form>
+
+<!-- Lista de contactos -->
+{% if contactos %}
+    <div class="row">
+        {% for contacto in contactos %}
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ contacto.nombre }}</h5>
+                        <p class="card-text mb-1">
+                            <strong>Teléfono:</strong> {{ contacto.telefono }}<br>
+                            <strong>Correo:</strong> {{ contacto.correo }}<br>
+                            <strong>Dirección:</strong> {{ contacto.direccion }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="alert alert-info">
+        No se encontraron contactos.
+    </div>
+{% endif %}
+{% endblock %}
