@@ -1,20 +1,30 @@
 {% extends 'base.html' %}
 {% load django_bootstrap5 %}
 
+{% block title %}{{ titulo|default:"Formulario de Contacto" }} - Agenda{% endblock %}
+
 {% block content %}
 <div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card shadow-sm mt-4">
-            <div class="card-header bg-primary text-white">
-                <h4 class="mb-0">Añadir Nuevo Contacto</h4>
+    <div class="col-md-7 col-lg-6">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white py-3">
+                <h4 class="mb-0 fw-semibold">
+                    <i class="bi bi-pencil-square me-2"></i>{{ titulo|default:"Formulario de Contacto" }}
+                </h4>
             </div>
-            <div class="card-body">
-                <form method="POST">
+            <div class="card-body p-4">
+                <form method="POST" novalidate>
                     {% csrf_token %}
+                    
                     {% bootstrap_form form %}
-                    <div class="d-grid gap-2 mt-4">
-                        <button type="submit" class="btn btn-success">Guardar Contacto</button>
-                        <a href="{% url 'contacto_list' %}" class="btn btn-secondary">Cancelar</a>
+
+                    <div class="d-flex justify-content-end gap-2 mt-4 pt-2 border-top">
+                        <a href="{% url 'contacto_list' %}" class="btn btn-outline-secondary">
+                            <i class="bi bi-x-circle me-1"></i>Cancelar
+                        </a>
+                        <button type="submit" class="btn btn-primary px-4">
+                            <i class="bi bi-check-circle me-1"></i>{{ boton_texto|default:"Guardar" }}
+                        </button>
                     </div>
                 </form>
             </div>
