@@ -4,7 +4,7 @@ Aplicación web desarrollada con **Django** y desplegada en **Vercel** con base 
 
 ---
 
-## 🚀 Características y Requerimientos Cumplidos
+##  Características y Requerimientos Cumplidos
 
 ### 1. Base de Datos en Producción (No SQLite)
 - Conexión configurada a **PostgreSQL en la nube (Supabase)** utilizando `psycopg2-binary`.
@@ -36,7 +36,7 @@ Aplicación web desarrollada con **Django** y desplegada en **Vercel** con base 
 
 ---
 
-## 📂 Estructura del Proyecto
+##  Estructura del Proyecto
 
 ```
 ES02_Agenda/
@@ -64,7 +64,7 @@ ES02_Agenda/
 
 ---
 
-## 🛠️ Instalación y Ejecución Local
+##  Instalación y Ejecución Local
 
 1. **Clonar el repositorio:**
    ```bash
@@ -104,7 +104,7 @@ ES02_Agenda/
 
 ---
 
-## 🔐 Acceso al Django Admin
+##  Acceso al Django Admin
 
 - **Ruta:** `/admin/`
 - **Usuario administrador por defecto:** `admin`
